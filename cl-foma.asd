@@ -2,7 +2,7 @@
   :version "0.1.0"
   :author "bmansurov"
   :license "lgpl-3"
-  :depends-on ()
+  :depends-on ("cffi")
   :components ((:module "src"
                 :components
                 ((:file "main"))))

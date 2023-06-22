@@ -2,8 +2,34 @@
   Common Lisp bindings for [[https://fomafst.github.io/][Foma]]
 
 ** Usage
+   Save your foma rules to a binary format:
+   #+begin_src bash
+     foma -l "morphology.foma" \
+          -e "save stack morphology.bin" \
+          -e "quit"
+   #+end_src
+
+   Load and use the binary in Lisp:
+   #+begin_src lisp
+     (let ((fst (cl-foma:make-fst
+                 :filename "/path/to/morphology.bin")))
+       (print (cl-foma:apply-up fst "олма"))
+       (print (cl-foma:apply-random-lower fst)))
+   #+end_src
 
 ** Installation
+   On Arch Linux:
+   #+begin_src bash
+     pacman -S foma
+   #+end_src
+
+** Development
+   - Function definitions:
+     #+begin_src bash
+       less /usr/include/fomalib.h
+     #+end_src
+   - Python bindings: https://github.com/mhulden/foma/blob/master/foma/python/foma.py
+   - Usage in NLTK: https://notebook.community/dcavar/python-tutorial-for-ipython/notebooks/Python%20Parsing%20with%20NLTK%20and%20Foma
 
 ** Author
    bmansurov
